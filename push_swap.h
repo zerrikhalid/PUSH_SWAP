@@ -23,7 +23,7 @@ typedef struct s_stack
 {
 	int				val;
 	struct s_stack	*next;
-}t_stack;
+}t_stack;	
 
 void	error(int key);
 int		ft_strlen(char *s);
@@ -48,5 +48,6 @@ void	rra_instruction(t_stack **stack_, int key);
 void	rrb_instruction(t_stack **stack_b, int key);
 void	rrr_instruction(t_stack **stack_a, t_stack **stack_b);
 void	rr_instruction(t_stack **stack_a, t_stack **stack_b, int key);
+int		*indexing(int *s, int len);
 
 #endif

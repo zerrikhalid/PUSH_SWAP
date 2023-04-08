@@ -19,4 +19,6 @@ void	error(int key)
 		write(2, "Error\n", 6);
 		exit(1);
 	}
+	else
+		exit(0);
 }

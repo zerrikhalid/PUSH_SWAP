@@ -26,6 +26,10 @@ void	check_each_arg(char *arg)
 		if (arg[i] >= '0' && arg[i] <= '9')
 			i++;
 		else if ((arg[i] == '+' || arg[i] == '-')
+			&& (arg[i + 1] >= '0' && arg[i + 1] <= '9')
+			&& (arg[i + 2] == '+' || arg[i + 2] == '-'))
+			error(1);
+		else if ((arg[i] == '+' || arg[i] == '-')
 			&& (arg[i + 1] >= '0' && arg[i + 1] <= '9'))
 			i++;
 		else if (arg[i] == ' ' || (arg[i] >= 9 && arg[i] <= 13))

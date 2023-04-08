@@ -47,16 +47,10 @@ void	if_everything_good(t_stack **head, int *arg, int len)
 	*ptr = NULL;
 	while (i < len)
 	{
-		if (!(*ptr))
-			*ptr = (t_stack *)malloc(sizeof(t_stack));
+		*ptr = (t_stack *)malloc(sizeof(t_stack));
 		(*ptr)->val = arg[i];
-		if (i < len - 1)
-		{
-			(*ptr)->next = (t_stack *)malloc(sizeof(t_stack));
-			ptr = &(*ptr)->next;
-		}
-		else
-			(*ptr)->next = NULL;
+		(*ptr)->next = NULL;
+		ptr = &(*ptr)->next;
 		i++;
 	}
 }
@@ -66,6 +60,7 @@ t_stack	*bring_head(char **args, int len)
 	int		i;
 	int		j;
 	int		*arg;
+	int		*indexed;
 	t_stack	*head;
 
 	i = 0;
@@ -74,10 +69,11 @@ t_stack	*bring_head(char **args, int len)
 	while (args[i])
 		arg[j++] = ft_atoi(args[i++]);
 	check_if_sort_dup(arg, len);
-	if_everything_good(&head, arg, len);
+	indexed = indexing(arg, len);
+	if_everything_good(&head, indexed, len);
 	if (!head)
 		exit(1);
-	return (free(arg), head);
+	return (free(arg), free(indexed), head);
 }
 
 t_stack	*return_head(char **av)

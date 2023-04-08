@@ -84,8 +84,8 @@ int	ft_atoi(char *s)
 	sign = 1;
 	if (*s == '-' && s++)
 		sign = -1;
-	if (*s == '+' && s++)
-		;
+	if (*s == '+')
+		s++;
 	while (*s)
 	{
 		n = (*s - 48);
