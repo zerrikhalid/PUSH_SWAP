@@ -82,14 +82,12 @@ int	ft_atoi(char *s)
 
 	nb = 0;
 	sign = 1;
+	if (*s == '+' && s++);
 	if (*s == '-' && s++)
 		sign = -1;
-	if (*s == '+')
-		s++;
 	while (*s)
 	{
-		n = (*s - 48);
-		n *= sign;
+		n = (*s - 48) * sign;
 		if (nb > (INT_MAX / 10) || (nb == (INT_MAX / 10) && n > 7))
 			error(1);
 		if (nb < (INT_MIN / 10) || (nb == (INT_MIN / 10) && n < -8))
