@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:10:28 by kzerri            #+#    #+#             */
-/*   Updated: 2023/02/27 18:41:11 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/17 12:33:45 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,8 @@ t_stack	*return_head(char **av)
 	while (args[i])
 		i++;
 	head = bring_head(args, i);
+	i = -1;
+	while (args[++i])
+		free(args[i]);
 	return (free(ptr), free(args), head);
 }

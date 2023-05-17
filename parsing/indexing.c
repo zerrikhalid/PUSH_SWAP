@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 03:34:18 by kzerri            #+#    #+#             */
-/*   Updated: 2023/03/13 03:34:18 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/15 21:17:52 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	*indexing(int *s, int len)
 {
-	int	i; 
+	int	i;
 	int	j;
 	int	*ret;
 
 	i = -1;
-	ret = (int *)calloc(len, 4);
+	ret = (int *)ft_calloc(len, 4);
 	while (++i < len)
 	{
 		j = len;

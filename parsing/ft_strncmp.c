@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrr_instruction.c                                  :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:44:46 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/15 20:47:28 by kzerri           ###   ########.fr       */
+/*   Created: 2023/05/16 20:51:34 by kzerri            #+#    #+#             */
+/*   Updated: 2023/05/16 22:40:06 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rrr_instruction(t_stack **stack_a, t_stack **stack_b, int key)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if ((stack_a || (*stack_a)) && (stack_b || (*stack_b)))
-	{
-		rra_instruction(stack_a, 1);
-		rrb_instruction(stack_b, 1);
-		if (key == 1)
-			write(1, "rrr\n", 4);
-	}
+	size_t			i;
+	unsigned char	*ps1;
+	unsigned char	*ps2;
+
+	ps1 = (unsigned char *)s1;
+	ps2 = (unsigned char *)s2;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while ((ps1[i] == ps2[i]) && (ps1[i] || ps1[i]) && i < n - 1)
+		i++;
+	if ((ps1[i] - ps2[i]) == 0)
+		return (0);
+	else if ((ps1[i] - ps2[i]) > 0)
+		return (1);
+	return (-1);
 }

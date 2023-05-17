@@ -1,24 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrr_instruction.c                                  :+:      :+:    :+:   */
+/*   calloc.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 18:44:46 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/15 20:47:28 by kzerri           ###   ########.fr       */
+/*   Created: 2023/05/13 16:41:01 by kzerri            #+#    #+#             */
+/*   Updated: 2023/05/13 20:44:09 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rrr_instruction(t_stack **stack_a, t_stack **stack_b, int key)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if ((stack_a || (*stack_a)) && (stack_b || (*stack_b)))
+	unsigned char	*p;
+
+	if (!b)
+		return (NULL);
+	p = (unsigned char *)b;
+	while (len--)
 	{
-		rra_instruction(stack_a, 1);
-		rrb_instruction(stack_b, 1);
-		if (key == 1)
-			write(1, "rrr\n", 4);
+		*p = (unsigned char)c;
+		p++;
 	}
+	return (b);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	if (!s)
+		return ;
+	if (n != 0)
+		ft_memset(s, 0, n);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
+
+	p = (void *)malloc(size * count);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, count * size);
+	return (p);
 }

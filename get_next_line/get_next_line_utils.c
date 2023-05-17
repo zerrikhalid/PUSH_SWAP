@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_help.c                                         :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 03:04:46 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/16 22:31:20 by kzerri           ###   ########.fr       */
+/*   Created: 2023/01/23 02:33:55 by kzerri            #+#    #+#             */
+/*   Updated: 2023/05/17 12:36:35 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "get_next_line.h"
 
-int	ft_strlen(char *s)
+size_t	ft_strlength(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	if (!s)
 		return (0);
 	i = 0;
-	while (s[i])
+	while (*(s + i))
 		i++;
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoins(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -33,7 +33,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1 && !s2)
 		return (NULL);
-	i = (ft_strlen(s1) + ft_strlen(s2));
+	i = (ft_strlength(s1) + ft_strlength(s2));
 	p = (char *)malloc(sizeof(char) * (i + 1));
 	if (!p)
 		return (NULL);
@@ -49,10 +49,26 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	p[j + i] = '\0';
-	return (free(s1), p);
+	return (p);
 }
 
-char	*ft_strdup(char *s1)
+char	*ft_strchar(const char *s, int c)
+{
+	char	*p;
+
+	if (!s)
+		return (NULL);
+	p = (char *)s;
+	while (*p != (char)c)
+	{
+		if (!*p)
+			return (NULL);
+		p++;
+	}
+	return (p);
+}
+
+char	*ft_dup(const char *s1)
 {
 	size_t	i;
 	char	*p;
@@ -60,7 +76,7 @@ char	*ft_strdup(char *s1)
 
 	if (!s1)
 		return (NULL);
-	i = ft_strlen(s1);
+	i = ft_strlength(s1);
 	j = 0;
 	p = (char *)malloc(sizeof(char) * (i + 1));
 	if (!p)
@@ -72,29 +88,4 @@ char	*ft_strdup(char *s1)
 	}
 	*(p + j) = '\0';
 	return (p);
-}
-
-int	ft_atoi(char *s)
-{
-	int	sign;
-	int	nb;
-	int	n;
-
-	nb = 0;
-	sign = 1;
-	if (*s == '+')
-		s++;
-	if (*s == '-' && s++)
-		sign = -1;
-	while (*s)
-	{
-		n = (*s - 48) * sign;
-		if (nb > (INT_MAX / 10) || (nb == (INT_MAX / 10) && n > 7))
-			error(1);
-		if (nb < (INT_MIN / 10) || (nb == (INT_MIN / 10) && n < -8))
-			error(1);
-		nb = nb * 10 + n;
-		s++;
-	}
-	return (nb);
 }

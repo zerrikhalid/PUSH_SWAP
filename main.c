@@ -6,11 +6,58 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:56:35 by kzerri            #+#    #+#             */
-/*   Updated: 2023/02/27 20:22:21 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:07:45 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	while (*stack_a)
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		free(tmp);
+	}
+}
+
+int	sa(t_stack **stack)
+{
+	sa_instruction(stack, 0);
+	return (1);
+}
+
+void	sort_three(t_stack **stack, int ac)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*stack)->val;
+	second = (*stack)->next->val;
+	if (ac <= 3 && first > second && sa(stack))
+		return ;
+	third = (*stack)->next->next->val;
+	if (first < second && first > third)
+		rra_instruction(stack, 0);
+	else if (first > second && first < third)
+		sa_instruction(stack, 0);
+	else if (first > second && first > third && second > third)
+	{
+		ra_instruction(stack, 0);
+		sa_instruction(stack, 0);
+	}
+	else if (first < second && first < third && second > third)
+	{
+		rra_instruction(stack, 0);
+		sa_instruction(stack, 0);
+	}
+	else if (first > second && first > third && second < third)
+		ra_instruction(stack, 0);
+}
 
 int	main(int ac, char **av)
 {
@@ -21,18 +68,16 @@ int	main(int ac, char **av)
 		exit(0);
 	check_arguments(av);
 	stack_a = return_head(av);
-	stack_b = return_head(av);
-	rrr_instruction(&stack_a, &stack_b);
-	while (stack_a)
+	stack_b = NULL;
+	if (ac <= 4)
+		sort_three(&stack_a, ac);
+	else if (ac <= 6)
+		sort_five(&stack_a, &stack_b, ac);
+	else
 	{
-		printf("%d ", stack_a->val);
-		stack_a = stack_a->next;
+		algo1(&stack_a, &stack_b);
+		sort_three(&stack_a, ac);
+		algo2(&stack_a, &stack_b);
 	}
-	printf("\n");
-	while (stack_b)
-	{
-		printf("%d ", stack_b->val);
-		stack_b = stack_b->next;	
-	}
-	printf("\n");
+	ft_free(&stack_a);
 }
