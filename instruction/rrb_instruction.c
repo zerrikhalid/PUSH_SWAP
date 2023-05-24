@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 18:28:45 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/15 20:50:15 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/20 20:47:15 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rrb_instruction(t_stack **stack_b, int key)
 	t_stack	*sb;
 	t_stack	**tmp;
 
-	if (stack_b || (*stack_b))
+	if (stack_b && (*stack_b) && lst_size(*stack_b) >= 2)
 	{
 		tmp = stack_b;
 		sb = ft_lstlast(*stack_b);

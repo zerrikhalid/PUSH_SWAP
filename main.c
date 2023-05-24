@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:56:35 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/17 14:07:45 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/24 23:12:52 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void	sort_three(t_stack **stack, int ac)
 
 	first = (*stack)->val;
 	second = (*stack)->next->val;
-	if (ac <= 3 && first > second && sa(stack))
+	ac = lst_size(*stack);
+	if (ac == 2 && first > second && sa(stack))
 		return ;
 	third = (*stack)->next->next->val;
 	if (first < second && first > third)
@@ -69,9 +70,9 @@ int	main(int ac, char **av)
 	check_arguments(av);
 	stack_a = return_head(av);
 	stack_b = NULL;
-	if (ac <= 4)
+	if (lst_size(stack_a) <= 3)
 		sort_three(&stack_a, ac);
-	else if (ac <= 6)
+	else if (lst_size(stack_a) <= 5)
 		sort_five(&stack_a, &stack_b, ac);
 	else
 	{

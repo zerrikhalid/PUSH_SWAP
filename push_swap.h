@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 04:07:06 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/17 14:24:10 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/17 19:25:21 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
-# include "../get_next_line/get_next_line.h"
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_stack
 {

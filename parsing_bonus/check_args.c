@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 04:45:18 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/24 02:42:25 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/13 15:14:06 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	check_each_arg(char *arg)
 	if (!arg[i])
 		error(1);
 	while (arg[i])
-	{
-		if (arg[i] >= '0' && arg[i] <= '9' && (arg[i + 1] == '+' || arg[i + 1] == '-'))
-			error(1);
+	{	
 		if (arg[i] >= '0' && arg[i] <= '9')
 			i++;
 		else if ((arg[i] == '+' || arg[i] == '-')

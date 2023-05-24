@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:10:28 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/24 23:11:14 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/20 20:57:30 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	check_if_sort_dup(int *arg, int len)
 {
 	int	i;
 	int	j;
-	int	k;
 
 	i = 0;
-	k = 0;
 	while (i < len)
 	{
 		j = i + 1;
@@ -27,14 +25,10 @@ void	check_if_sort_dup(int *arg, int len)
 		{
 			if (arg[i] == arg[j])
 				error(1);
-			if (arg[i] > arg[j])
-				k++;
 			j++;
 		}
 		i++;
 	}
-	if (!k)
-		exit(0);
 }
 
 void	if_everything_good(t_stack **head, int *arg, int len)

@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:57:32 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/17 14:02:12 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/17 19:26:57 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	pb_instruction(t_stack **stack_a, t_stack **stack_b, int key)
 {
 	t_stack	*top_a;
 
-	if (stack_a || (*stack_a))
+	if (stack_a && (*stack_a))
 	{
 		top_a = *stack_a;
 		*stack_a = top_a->next;

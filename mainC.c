@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:48:23 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/17 12:34:23 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/20 22:13:05 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 void	ft_free(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_b || (*stack_b))
+	t_stack	*tmp;
+
+	if (stack_b && (*stack_b))
 	{
 		while (*stack_b)
 		{
-			free(*stack_b);
+			tmp = *stack_b;
 			*stack_b = (*stack_b)->next;
+			free(tmp);
 		}
 	}
 	while (*stack_a)
 	{
-		free(*stack_a);
+		tmp = *stack_a;
 		*stack_a = (*stack_a)->next;
+		free(tmp);
 	}
 }
 

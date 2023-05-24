@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_last.c                                         :+:      :+:    :+:   */
+/*   indexing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 15:09:18 by kzerri            #+#    #+#             */
-/*   Updated: 2023/02/27 16:47:58 by kzerri           ###   ########.fr       */
+/*   Created: 2023/03/13 03:34:18 by kzerri            #+#    #+#             */
+/*   Updated: 2023/05/15 21:17:52 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_stack	*ft_lstlast(t_stack *lst)
+int	*indexing(int *s, int len)
 {
-	if (!lst)
-		return (0);
-	if (!lst->next)
-		return (lst);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	int	i;
+	int	j;
+	int	*ret;
+
+	i = -1;
+	ret = (int *)ft_calloc(len, 4);
+	while (++i < len)
+	{
+		j = len;
+		while (j--)
+		{
+			if (s[i] > s[j])
+				++ret[i];
+		}
+	}
+	return (ret);
 }

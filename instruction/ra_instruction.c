@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:26:55 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/15 20:48:55 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/17 19:34:37 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra_instruction(t_stack **stack_a, int key)
 {
 	t_stack	*sa;
 
-	if (stack_a || (*stack_a))
+	if (stack_a && (*stack_a))
 	{
 		sa = *stack_a;
 		*stack_a = (*stack_a)->next;

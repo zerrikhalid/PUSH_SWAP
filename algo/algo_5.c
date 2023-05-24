@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:24:14 by kzerri            #+#    #+#             */
-/*   Updated: 2023/05/17 14:16:56 by kzerri           ###   ########.fr       */
+/*   Updated: 2023/05/24 23:11:03 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b, int ac)
 	int	index;
 
 	index = 0;
-	if (ac <= 5)
+	ac = lst_size(*stack_a);
+	if (ac == 4)
 	{
 		sort_four(stack_a, stack_b, ac);
 		return ;
